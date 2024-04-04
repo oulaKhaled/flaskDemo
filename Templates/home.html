@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        This is our home page 
+    </h1>
+    <h1> Here is you Daily Tasks</h1>
+    <form action="/task" method="post">
+        Add your task:  <input type="text" name="task_input"> 
+        <button type="submit">click</button>
+        
+    </form>
+   
+    <ul>
+        {% for doc in doc_list %}
+        <div style="display: flex; margin: 5px; ">
+            
+        <form method="post" action="/"  >
+            <input type="hidden" name="doc_id" value="{{ doc }}">
+        <li > {{ doc }}</li>
+        <button type="submit" style="margin-left: 20px;" name="action" value="delete"
+        >delete task</button>
+        <input type="text" name="update_input" id="update_input" style="margin: 5px;">
+        <button type="submit" style="margin-left: 20px;" name="action" value="update" onclick="click_to_update(event)" >update task</button>
+        </form>
+        </div>
+    {% endfor %}
+    </ul>
+    <h3><a href="/logout"> Logout </a></h3>
+
+</body>
+
+</html>

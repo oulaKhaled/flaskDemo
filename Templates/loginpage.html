@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if route == 'index' %}
+    <h1>{{title}}</h1>
+    <h1> Login Page </h1>
+    <form action="/login" method="post">
+     
+       Email:  <input type="text" name="email">
+       Password:  <input type="password" name="password">
+      
+        <button type="submit">click</button>
+        <p><a href="/logingoogle">sign in using google</a></p>
+    <p> you have no account? <h3><a href="/register">Register here </a></h3></p>
+    
+    </form>
+  
+    {% elif route == 'register' %}
+    <h1>{{title}}</h1>
+    <form action="/register" method="post">
+     
+        Email:  <input type="text" name="email">
+        Password:  <input type="password" name="password">
+        Confirm Password:  <input type="password" name="confirmpassword">
+       
+         <button type="submit">click</button>
+         
+     <p> already have no account? <h3><a href="/">login here </a></h3></p>
+     
+     </form>
+     
+{% endif %}
+{% if error_message %}
+     <p style="color: red;">{{ error_message }}</p>
+     {% endif %}
+</body>
+</html>
